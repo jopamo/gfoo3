@@ -13,6 +13,7 @@ public class Solution {
 
     for (int i = 0; i < s.length(); ++i) {
       ch = s.charAt(i);
+      //count all going left
       if (ch == '<') {
         goLeft++;
       }
@@ -20,19 +21,23 @@ public class Solution {
 
     for (int i = 0; i < s.length(); ++i) {
       ch = s.charAt(i);
+
+      //first subtract any lone employees going left toward end of hall
       if (ch == '<') {
         goLeft--;
+      //all the lefts after the first right will be saluting each right they encounter
       } else if (ch == '>') {
         salutes += goLeft;
       }
     }
+    //each employee salutes
     return salutes * 2;
   }
 
   public static void main(String []args) {
     System.out.println(Solution.solution("<<>><"));
     System.out.println(Solution.solution(">----<"));
-    System.out.println(Solution.solution("><--->-><-><-->-><"));
+    System.out.println(Solution.solution("<-><->-<<"));
     System.out.println(Solution.solution(">---->-->-->-><-><-<<->-<<>>><<<-->-->-->-><><-><-<<->-<<>>><"));
   }
 }
