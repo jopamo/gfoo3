@@ -13,7 +13,7 @@ public class Solution {
 
     for (int i = 0; i < s.length(); ++i) {
       ch = s.charAt(i);
-      //count all going left
+      //count all going left for the next pass
       if (ch == '<') {
         goLeft++;
       }
@@ -25,7 +25,7 @@ public class Solution {
       //first subtract any lone employees going left toward end of hall
       if (ch == '<') {
         goLeft--;
-      //all the lefts after the first right will be saluting each right they encounter
+      //all the lefts after the first right will be saluting this one
       } else if (ch == '>') {
         salutes += goLeft;
       }
